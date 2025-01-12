@@ -6,11 +6,11 @@ services:
     depends_on:
       - db
       - redis
-      - maddy
+
     environment:
       APP_URL: "http://localhost:3000"
-      APP_SECRET: "REPLACE_WITH_LONG_SECRET"
-      DATABASE_URL: "postgresql://docmost:STRONG_DB_PASSWORD@db:5432/docmost?schema=public"
+      APP_SECRET: "5a1f3e8c9b2d7e4f6a8c3b1d5e9f2a7c8d3e1f4a6b9c2d5e8f3a1b4c7d2e9f6a8"
+      DATABASE_URL: "postgresql://docmost:123123AAzz..@db:5432/docmost?schema=public"
       REDIS_URL: "redis://redis:6379"
     ports:
       - "3000:3000"
@@ -23,7 +23,7 @@ services:
     environment:
       POSTGRES_DB: docmost
       POSTGRES_USER: docmost
-      POSTGRES_PASSWORD: STRONG_DB_PASSWORD
+      POSTGRES_PASSWORD: 123123AAzz..
     restart: unless-stopped
     volumes:
       - db_data:/var/lib/postgresql/data
@@ -34,17 +34,7 @@ services:
     volumes:
       - redis_data:/data
 
-  maddy:
-    image: foxcpp/maddy:latest
-    environment:
-      MADDY_HOSTNAME: "mx.yourdomain.com"
-      MADDY_DOMAIN: "yourdomain.com"
-    volumes:
-      - maddy_data:/data
-    ports:
-      - "25:25"
-      - "587:587"
-      - "993:993"
+
 volumes:
   docmost:
   db_data:
