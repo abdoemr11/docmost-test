@@ -12,13 +12,11 @@ services:
       APP_SECRET: "5a1f3e8c9b2d7e4f6a8c3b1d5e9f2a7c8d3e1f4a6b9c2d5e8f3a1b4c7d2e9f6a8"
       DATABASE_URL: "postgresql://docmost:123123AAzz..@db:5432/docmost?schema=public"
       REDIS_URL: "redis://redis:6379"
-      MAIL_DRIVER=smtp
-      SMTP_HOST=mailpit
-      SMTP_PORT=1025
-      SMTP_USERNAME=
-      SMTP_PASSWORD=
-      MAIL_FROM_ADDRESS=no-reply@example.com
-      MAIL_FROM_NAME=Docmost
+      MAIL_DRIVER: smtp
+      SMTP_HOST: mailpit
+      SMTP_PORT: 1025
+      MAIL_FROM_ADDRESS: no-reply@example.com
+      MAIL_FROM_NAME: Docmost
     ports:
       - "3000:3000"
     restart: unless-stopped
